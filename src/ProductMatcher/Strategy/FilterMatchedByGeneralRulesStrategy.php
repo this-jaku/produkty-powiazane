@@ -14,7 +14,6 @@ class FilterMatchedByGeneralRulesStrategy implements ProductMatchStrategyInterfa
 
         $foundedProducts = [];
         $matchedGeneralRulesProducts = [];
-
         foreach ($products as $product) {
             if ($this->checkProductAgainstRules($product, $findRules)) {
                 $foundedProducts[] = $product;
@@ -29,7 +28,11 @@ class FilterMatchedByGeneralRulesStrategy implements ProductMatchStrategyInterfa
         $matchStrictRules = $this->getStrictCriteriaRules($matchRules);
 
         $matchedProducts = [];
+//        $foundedCount = count($foundedProducts);
+//        $iterator = 0;
         foreach ($foundedProducts as $foundedProduct) {
+//            $iterator++;
+//            echo "matching product $iterator/$foundedCount".PHP_EOL;
             $matched = [];
             foreach ($matchedGeneralRulesProducts as $matchedProduct) {
                 if ($this->checkProductAgainstStrictMatchRules($foundedProduct, $matchedProduct, $matchStrictRules)) {
@@ -46,6 +49,15 @@ class FilterMatchedByGeneralRulesStrategy implements ProductMatchStrategyInterfa
     {
         foreach ($rules as $rule) {
             $productParameter = $rule['parameter'];
+
+            if (!isset($foundedProduct['parameters'][$productParameter])) {
+                return false;
+            }
+
+            if (!isset($matchedProduct['parameters'][$productParameter])) {
+                return false;
+            }
+
             if ($foundedProduct['parameters'][$productParameter] !== $matchedProduct['parameters'][$productParameter]) {
                 return false;
             }

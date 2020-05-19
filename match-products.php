@@ -22,14 +22,14 @@ $matchStrategyFactory = new \ProductMatcher\Strategy\ProductMatchStrategyFactory
 $strategy = $matchStrategyFactory->create(\ProductMatcher\Strategy\FilterMatchedByGeneralRulesStrategy::class);
 $matchedProducts = $strategy->match($products, $rules);
 
-$matchTime = (microtime(true) - $matchStart);
-
-echo "Script time: $matchTime sec".PHP_EOL;
-
-$memoryPeakInKB = round(memory_get_peak_usage() / 1024);
-echo "Memory peak: $memoryPeakInKB KB" . PHP_EOL;
-
-echo "Products: ".PHP_EOL;
+//$matchTime = (microtime(true) - $matchStart);
+//
+//echo "Script time: $matchTime sec".PHP_EOL;
+//
+//$memoryPeakInKB = round(memory_get_peak_usage() / 1024);
+//echo "Memory peak: $memoryPeakInKB KB" . PHP_EOL;
+//
+//echo "Products: ".PHP_EOL;
 echo json_encode($matchedProducts, JSON_PRETTY_PRINT);
 
 function getJsonContent(string $filePath): array
