@@ -9,6 +9,9 @@ class ProductMatchStrategyFactory
         switch ($className) {
             case FilterMatchedByGeneralRulesStrategy::class;
                 return new FilterMatchedByGeneralRulesStrategy();
+            case IndexStrictRulesParametersStrategy::class:
+                return new IndexStrictRulesParametersStrategy();
+                break;
             default:
                 throw new \RuntimeException("Strategy $className not exists");
 

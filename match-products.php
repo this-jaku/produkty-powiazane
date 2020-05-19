@@ -19,7 +19,7 @@ $rules = getJsonContent($argv[2]);
 $matchStart = microtime(true);
 
 $matchStrategyFactory = new \ProductMatcher\Strategy\ProductMatchStrategyFactory();
-$strategy = $matchStrategyFactory->create(\ProductMatcher\Strategy\FilterMatchedByGeneralRulesStrategy::class);
+$strategy = $matchStrategyFactory->create(\ProductMatcher\Strategy\IndexStrictRulesParametersStrategy::class);
 $matchedProducts = $strategy->match($products, $rules);
 
 //$matchTime = (microtime(true) - $matchStart);
