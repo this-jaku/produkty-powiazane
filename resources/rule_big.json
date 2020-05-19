@@ -1,0 +1,1 @@
+{"name":"Do każdego produktu z parametrem Obudowa dopasuj","findProducts":[{"parameter":"Obudowa","equals":"any"}],"matchProducts":[{"parameter":"Obudowa","equals":"this"},{"parameter":"Montaż","equals":"SMD"}]}

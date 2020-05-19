@@ -1,0 +1,23 @@
+{
+  "name": "jaku/produkty-powiazane",
+  "authors": [
+    {
+      "name": "Jacek Kubicki",
+      "email": "this.jaku@gmail.com"
+    }
+  ],
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  },
+  "require": {
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8"
+  },
+  "scripts": {
+    "tests": "./vendor/bin/phpunit tests"
+  }
+}
